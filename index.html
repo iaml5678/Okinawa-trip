@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌺 沖繩五日遊 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean: #00b4d8;
+    --deep: #0077b6;
+    --sand: #fef3c7;
+    --coral: #ff6b6b;
+    --mint: #95d5b2;
+    --sky: #e0f7ff;
+    --sun: #ffd166;
+    --white: #ffffff;
+    --text: #1a3a4a;
+    --pink: #ffb3c1;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: linear-gradient(160deg, #e0f7ff 0%, #b3e5fc 30%, #e8f5e9 70%, #fef9ef 100%);
+font-family: ‘Noto Sans TC’, sans-serif;
+color: var(–text);
+min-height: 100vh;
+padding: 20px 10px 40px;
+}
+
+.page {
+max-width: 800px;
+margin: 0 auto;
+}
+
+/* HEADER */
+.header {
+text-align: center;
+padding: 30px 20px 20px;
+position: relative;
+}
+.header-title {
+font-family: ‘Pacifico’, cursive;
+font-size: 2.8rem;
+color: var(–deep);
+text-shadow: 3px 3px 0 var(–ocean), 5px 5px 0 rgba(0,119,182,0.2);
+letter-spacing: 2px;
+animation: float 3s ease-in-out infinite;
+}
+.header-sub {
+font-size: 1.1rem;
+color: var(–deep);
+margin-top: 8px;
+font-weight: 700;
+letter-spacing: 4px;
+}
+.header-dates {
+display: inline-block;
+background: var(–deep);
+color: white;
+padding: 6px 20px;
+border-radius: 20px;
+font-size: 0.9rem;
+margin-top: 10px;
+font-weight: 700;
+}
+.deco-wave {
+margin-top: 15px;
+font-size: 2rem;
+animation: wave-drift 4s ease-in-out infinite;
+}
+
+/* FISH decorations */
+.fish-row {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 5px 0;
+font-size: 1.5rem;
+animation: fish-swim 6s ease-in-out infinite;
+}
+
+/* INFO BOX */
+.hotel-strip {
+background: white;
+border-radius: 16px;
+padding: 12px 18px;
+margin: 0 10px 20px;
+border-left: 5px solid var(–ocean);
+box-shadow: 0 4px 15px rgba(0,180,216,0.15);
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 0.85rem;
+}
+.hotel-icon { font-size: 1.8rem; }
+.hotel-text strong { color: var(–deep); font-size: 0.95rem; }
+.hotel-text p { color: #666; margin-top: 2px; }
+
+/* DAY CARDS */
+.day-card {
+background: white;
+border-radius: 24px;
+margin: 0 5px 24px;
+overflow: hidden;
+box-shadow: 0 6px 25px rgba(0,100,150,0.12);
+transition: transform 0.3s;
+animation: slideUp 0.6s ease both;
+}
+.day-card:hover { transform: translateY(-3px); }
+
+.day-header {
+padding: 16px 22px 14px;
+display: flex;
+align-items: center;
+gap: 14px;
+position: relative;
+overflow: hidden;
+}
+.day-header::after {
+content: ‘’;
+position: absolute;
+right: -20px; top: -20px;
+width: 100px; height: 100px;
+border-radius: 50%;
+background: rgba(255,255,255,0.15);
+}
+
+.day1 .day-header { background: linear-gradient(135deg, #0077b6, #00b4d8); }
+.day2 .day-header { background: linear-gradient(135deg, #06b6d4, #67e8f9); }
+.day3 .day-header { background: linear-gradient(135deg, #f59e0b, #fcd34d); }
+.day4 .day-header { background: linear-gradient(135deg, #10b981, #6ee7b7); }
+.day5 .day-header { background: linear-gradient(135deg, #8b5cf6, #c4b5fd); }
+
+.day-num {
+background: rgba(255,255,255,0.3);
+backdrop-filter: blur(4px);
+border: 2px solid rgba(255,255,255,0.6);
+border-radius: 14px;
+padding: 8px 14px;
+text-align: center;
+min-width: 68px;
+flex-shrink: 0;
+}
+.day-num .day-label { font-size: 0.7rem; color: rgba(255,255,255,0.9); font-weight: 700; letter-spacing: 2px; }
+.day-num .day-number { font-size: 1.6rem; font-weight: 900; color: white; line-height: 1.1; }
+.day-num .day-date { font-size: 0.72rem; color: rgba(255,255,255,0.9); margin-top: 2px; }
+
+.day-title-area { flex: 1; }
+.day-emoji { font-size: 1.8rem; }
+.day-title { font-size: 1.1rem; font-weight: 900; color: white; margin-top: 2px; text-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+
+/* TIMELINE */
+.timeline {
+padding: 18px 18px 18px 24px;
+position: relative;
+}
+.timeline::before {
+content: ‘’;
+position: absolute;
+left: 38px; top: 18px; bottom: 18px;
+width: 2px;
+background: linear-gradient(to bottom, #e0f2fe, #bae6fd, #e0f2fe);
+}
+
+.event {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+margin-bottom: 16px;
+position: relative;
+animation: fadeIn 0.5s ease both;
+}
+.event:last-child { margin-bottom: 0; }
+
+.event-dot {
+width: 32px; height: 32px;
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-size: 1rem;
+flex-shrink: 0;
+border: 2.5px solid white;
+box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+z-index: 1;
+background: white;
+}
+
+.event-content { flex: 1; }
+.event-time {
+font-size: 0.72rem;
+font-weight: 700;
+color: var(–ocean);
+letter-spacing: 1px;
+background: #e0f7ff;
+display: inline-block;
+padding: 2px 8px;
+border-radius: 8px;
+margin-bottom: 3px;
+}
+.event-name {
+font-size: 0.98rem;
+font-weight: 700;
+color: var(–text);
+line-height: 1.3;
+}
+.event-note {
+font-size: 0.78rem;
+color: #5b8fa8;
+margin-top: 3px;
+line-height: 1.5;
+padding: 4px 8px;
+background: #f0fbff;
+border-radius: 6px;
+border-left: 3px solid var(–ocean);
+}
+.event-duration {
+font-size: 0.72rem;
+color: #888;
+margin-top: 2px;
+}
+.event-duration::before { content: ’⏱ ’; }
+
+/* SPECIAL TAGS */
+.tag {
+display: inline-block;
+font-size: 0.68rem;
+padding: 2px 7px;
+border-radius: 10px;
+font-weight: 700;
+margin-left: 6px;
+vertical-align: middle;
+}
+.tag-food { background: #fef9c3; color: #854d0e; }
+.tag-stay { background: #fce7f3; color: #9d174d; }
+.tag-fun { background: #dcfce7; color: #166534; }
+.tag-fly { background: #ede9fe; color: #5b21b6; }
+.tag-tip { background: #ffedd5; color: #9a3412; }
+.tag-star { background: #fef3c7; color: #92400e; }
+
+/* DOLPHIN INFO BOX */
+.info-box {
+margin: 12px 0 4px;
+background: linear-gradient(135deg, #e0f7ff, #f0fdf4);
+border: 2px dashed var(–ocean);
+border-radius: 14px;
+padding: 12px 14px;
+}
+.info-box-title {
+font-weight: 900;
+color: var(–deep);
+font-size: 0.9rem;
+margin-bottom: 6px;
+display: flex; align-items: center; gap: 6px;
+}
+.info-box-row {
+font-size: 0.78rem;
+color: #2d6a8a;
+margin: 3px 0;
+padding-left: 8px;
+}
+.info-box-row strong { color: var(–deep); }
+
+/* FLIGHT CARD */
+.flight-card {
+background: linear-gradient(135deg, #0f172a, #1e3a5f);
+border-radius: 16px;
+padding: 14px 18px;
+color: white;
+margin: 4px 0;
+position: relative;
+overflow: hidden;
+}
+.flight-card::before {
+content: ‘✈’;
+position: absolute;
+right: 14px; top: 50%;
+transform: translateY(-50%);
+font-size: 3rem;
+opacity: 0.1;
+}
+.flight-route {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 0.85rem;
+}
+.flight-city { font-weight: 900; font-size: 1rem; }
+.flight-arrow { color: var(–ocean); font-size: 1.2rem; }
+.flight-details { font-size: 0.75rem; color: #94a3b8; margin-top: 5px; }
+.flight-num {
+background: var(–ocean);
+color: white;
+padding: 3px 10px;
+border-radius: 8px;
+font-weight: 700;
+font-size: 0.8rem;
+display: inline-block;
+margin-bottom: 5px;
+}
+
+/* FOOTER */
+.footer {
+text-align: center;
+padding: 20px;
+color: var(–deep);
+font-size: 0.85rem;
+}
+.footer-icons { font-size: 1.5rem; margin-bottom: 8px; }
+
+/* NOTE BOX */
+.note-warning {
+background: #fffbeb;
+border: 2px solid #fcd34d;
+border-radius: 12px;
+padding: 10px 14px;
+font-size: 0.78rem;
+color: #78350f;
+margin: 8px 0;
+line-height: 1.6;
+}
+.note-warning::before { content: ’⚠️ ’; }
+
+/* ANIMATIONS */
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-6px); }
+}
+@keyframes wave-drift {
+0%, 100% { transform: translateX(0); }
+50% { transform: translateX(8px); }
+}
+@keyframes fish-swim {
+0%, 100% { transform: translateX(0); }
+33% { transform: translateX(5px); }
+66% { transform: translateX(-5px); }
+}
+@keyframes slideUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+.day-card:nth-child(1) { animation-delay: 0.1s; }
+.day-card:nth-child(2) { animation-delay: 0.2s; }
+.day-card:nth-child(3) { animation-delay: 0.3s; }
+.day-card:nth-child(4) { animation-delay: 0.4s; }
+.day-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* DIVIDER */
+.arrow-div {
+text-align: center;
+font-size: 1.4rem;
+color: var(–ocean);
+margin: 6px 0 10px;
+opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+.header-title { font-size: 2rem; }
+.day-title { font-size: 0.95rem; }
+}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+
+  <div class="header">
+    <div class="fish-row">🐠 🐟 🐬 🐟 🐠</div>
+    <div class="header-title">沖繩 Okinawa</div>
+    <div class="header-sub">🌺 五日四夜旅遊行程 🌺</div>
+    <div class="header-dates">📅 2025年5月9日 — 5月13日</div>
+    <div class="deco-wave">🌊🌊🌊🌊🌊</div>
+  </div>
+
+  <!-- HOTEL INFO -->
+
+  <div class="hotel-strip">
+    <div class="hotel-icon">🏨</div>
+    <div class="hotel-text">
+      <strong>🛏 D1–D2 民宿：グランディオーソ沖縄プールヴィラ恩納7</strong>
+      <p>📍 1854 Afuso, Onna, Kunigami District, Okinawa 904-0402</p>
+    </div>
+  </div>
+  <div class="hotel-strip" style="border-left-color: #10b981; margin-top: -10px;">
+    <div class="hotel-icon">🏩</div>
+    <div class="hotel-text">
+      <strong>🛏 D3–D4 飯店：琉球名城海灘度假酒店</strong>
+      <p>📍 那霸市近郊，5/11 Check in → 5/13 Check out</p>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+
+  <div class="day-card day1">
+    <div class="day-header">
+      <div class="day-num">
+        <div class="day-label">DAY</div>
+        <div class="day-number">1</div>
+        <div class="day-date">5月9日 五</div>
+      </div>
+      <div class="day-title-area">
+        <div class="day-emoji">✈️🌴</div>
+        <div class="day-title">出發日 × 美國村煙火</div>
+      </div>
+    </div>
+    <div class="timeline">
+
+```
+  <div class="event">
+    <div class="event-dot" style="background:#ede9fe;">✈️</div>
+    <div class="event-content">
+      <div class="event-time">出發時間</div>
+      <div class="event-name">星宇航空 JX870 <span class="tag tag-fly">去程</span></div>
+      <div class="flight-card" style="margin-top:8px;">
+        <div class="flight-num">JX870 | 星宇航空 STARLUX</div>
+        <div class="flight-route">
+          <span class="flight-city">🇹🇼 桃園 TPE</span>
+          <span class="flight-arrow">━━✈━━▶</span>
+          <span class="flight-city">🇯🇵 那霸 OKA</span>
+        </div>
+        <div class="flight-details">表定起飛 12:00（T1 / 報到櫃 6） ✦ 表定抵達 14:40 ✦ 飛行約 1小時40分 ✦ 機型 A350-900</div>
+      </div>
+      <div class="event-note">📌 建議提前2小時（10:00前）抵達機場辦理登機；星宇T1第一航廈出發，可享GALACTIC Lounge貴賓室</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🚗</div>
+    <div class="event-content">
+      <div class="event-time">約 15:00</div>
+      <div class="event-name">那霸機場出發 → 美國村</div>
+      <div class="event-duration">車程約 45–60 分鐘</div>
+      <div class="event-note">自駕或租車前往，建議提前預訂租車。沿沖繩西海岸行駛，沿途風景美麗！</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fce7f3;">🎆</div>
+    <div class="event-content">
+      <div class="event-time">20:00</div>
+      <div class="event-name">美國村煙火秀 🎇 <span class="tag tag-fun">必看</span></div>
+      <div class="event-duration">煙火約 30 分鐘｜建議 19:30 前抵達卡位</div>
+      <div class="event-note">北谷公園・海濱廣場附近視野最佳！周邊有餐廳、購物商場，可邊逛邊等煙火 🛍️</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fce7f3;">🏡</div>
+    <div class="event-content">
+      <div class="event-time">21:30+</div>
+      <div class="event-name">前往民宿 Check in <span class="tag tag-stay">住宿</span></div>
+      <div class="event-duration">車程美國村 → 恩納 約 30 分鐘</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- DAY 2 -->
+
+  <div class="day-card day2">
+    <div class="day-header">
+      <div class="day-num">
+        <div class="day-label">DAY</div>
+        <div class="day-number">2</div>
+        <div class="day-date">5月10日 六</div>
+      </div>
+      <div class="day-title-area">
+        <div class="day-emoji">🐠🐬</div>
+        <div class="day-title">美麗海 × 暖暮拉麵 × 透明船</div>
+      </div>
+    </div>
+    <div class="timeline">
+
+```
+  <div class="event">
+    <div class="event-dot" style="background:#e0f7ff;">🐳</div>
+    <div class="event-content">
+      <div class="event-time">08:30–09:00 抵達</div>
+      <div class="event-name">沖繩美麗海水族館 <span class="tag tag-fun">必去</span></div>
+      <div class="event-duration">建議停留 3–4 小時（含海洋博公園）</div>
+
+      <div class="info-box">
+        <div class="info-box-title">🐬 海豚秀 & 餵食時間表</div>
+        <div class="info-box-row">🎪 <strong>海豚表演（免費）：</strong>10:30 / 11:30 / 13:00 / 15:00 / 17:00（每場約20分）</div>
+        <div class="info-box-row">🐟 <strong>海豚餵食體驗（付費¥500）：</strong>10:00 / 11:00 / 12:00 / 13:30 / 15:30</div>
+        <div class="info-box-row">🦈 <strong>鯨鯊餵食秀：</strong>15:00 / 17:00（垂直站立進食超壯觀！）</div>
+        <div class="info-box-row">🐡 <strong>鬼蝠魟餵食：</strong>09:30（早上限定）</div>
+        <div class="info-box-row">🌊 <strong>建議行程：</strong>09:00入場 → 09:30鬼蝠魟 → 10:30海豚秀 → 11:00海豚餵食</div>
+      </div>
+      <div class="note-warning">海豚餵食體驗需在海豚秀前後30分鐘，場地較隱密，請提早詢問工作人員地點！</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🍜</div>
+    <div class="event-content">
+      <div class="event-time">約 13:00</div>
+      <div class="event-name">暖暮拉麵 <span class="tag tag-food">美食</span></div>
+      <div class="event-duration">用餐約 60 分鐘</div>
+      <div class="event-note">九州系豚骨拉麵名店！沖繩多個分店，建議選名護店（近美麗海）。排隊需提前到，人氣超旺🔥</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#dcfce7;">🛥️</div>
+    <div class="event-content">
+      <div class="event-time">16:30</div>
+      <div class="event-name">瀨底島 透明玻璃底船 <span class="tag tag-fun">體驗</span></div>
+      <div class="event-duration">行程約 40–60 分鐘</div>
+      <div class="event-note">搭乘透明玻璃船觀察海底珊瑚礁與熱帶魚！瀨底島距名護約20分鐘車程。建議提前預約，5月海水清澈超美 🐡</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fce7f3;">🏡</div>
+    <div class="event-content">
+      <div class="event-time">18:30+</div>
+      <div class="event-name">返回民宿休息 <span class="tag tag-stay">住宿</span></div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- DAY 3 -->
+
+  <div class="day-card day3">
+    <div class="day-header">
+      <div class="day-num">
+        <div class="day-label">DAY</div>
+        <div class="day-number">3</div>
+        <div class="day-date">5月11日 日</div>
+      </div>
+      <div class="day-title-area">
+        <div class="day-emoji">🦁🛍️</div>
+        <div class="day-title">動物王國 × 敘敘苑 × 換飯店</div>
+      </div>
+    </div>
+    <div class="timeline">
+
+```
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🧳</div>
+    <div class="event-content">
+      <div class="event-time">上午</div>
+      <div class="event-name">民宿 Check Out <span class="tag tag-stay">退房</span></div>
+      <div class="event-note">整理行李，確認貴重物品。民宿チェックアウト後寄放行李或直接前往下個景點</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#dcfce7;">🦒</div>
+    <div class="event-content">
+      <div class="event-time">09:30–12:00</div>
+      <div class="event-name">沖繩動物王國 OKINAWA ZOO <span class="tag tag-fun">親子</span></div>
+      <div class="event-duration">建議停留 2.5 小時</div>
+      <div class="event-note">可近距離與動物互動！有袋鼠、長頸鹿等餵食體驗，小朋友超愛 🦘。距恩納民宿約 40 分鐘車程。</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🥩</div>
+    <div class="event-content">
+      <div class="event-time">13:00–14:30</div>
+      <div class="event-name">Parco City × 敘敘苑燒肉 <span class="tag tag-food">午餐</span></div>
+      <div class="event-duration">用餐約 90 分鐘</div>
+      <div class="event-note">那霸 Parco City 百貨的敘敘苑韓式燒肉！和牛＋泡菜鍋超享受。建議開店前抵達排隊，人氣超高 🔥</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fce7f3;">🏪</div>
+    <div class="event-content">
+      <div class="event-time">14:30–20:30</div>
+      <div class="event-name">Parco City 逛街 <span class="tag tag-fun">購物</span></div>
+      <div class="event-duration">自由逛約 6 小時，盡情血拼！</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#e8f5e9;">🏖️</div>
+    <div class="event-content">
+      <div class="event-time">20:30+</div>
+      <div class="event-name">琉球名城海灘度假酒店 Check In <span class="tag tag-stay">新住宿</span></div>
+      <div class="event-note">逛完 Parco City 後前往飯店，Check in 後好好休息 🌙</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- DAY 4 -->
+
+  <div class="day-card day4">
+    <div class="day-header">
+      <div class="day-num">
+        <div class="day-label">DAY</div>
+        <div class="day-number">4</div>
+        <div class="day-date">5月12日 一</div>
+      </div>
+      <div class="day-title-area">
+        <div class="day-emoji">🏊🛍️🔥</div>
+        <div class="day-title">飯店玩水 × 國際通 × 燒烤之夜</div>
+      </div>
+    </div>
+    <div class="timeline">
+
+```
+  <div class="event">
+    <div class="event-dot" style="background:#e0f7ff;">🏊</div>
+    <div class="event-content">
+      <div class="event-time">上午 8:00–11:00</div>
+      <div class="event-name">飯店泳池 & 海灘玩水 <span class="tag tag-fun">悠閒</span></div>
+      <div class="event-duration">盡情玩水約 3 小時</div>
+      <div class="event-note">5月沖繩氣溫約 25–28°C，泳池＋沙灘完美！記得帶防曬、玩具和水上裝備 🏄</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🛍️</div>
+    <div class="event-content">
+      <div class="event-time">13:00–17:00</div>
+      <div class="event-name">那霸 國際通 <span class="tag tag-fun">購物</span></div>
+      <div class="event-duration">逛街、採買伴手禮約 4 小時</div>
+      <div class="event-note">沖繩最熱鬧的購物街！必買：泡盛、紅芋塔、ちんすこう、守禮之邦陶器。建議從牧志市場往北走，吃小吃邊逛 🌺</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🥩</div>
+    <div class="event-content">
+      <div class="event-time">18:00</div>
+      <div class="event-name">Roins Okinawa 燒烤晚餐 <span class="tag tag-food">晚餐</span><span class="tag tag-star">壓軸</span></div>
+      <div class="event-duration">用餐約 2 小時</div>
+      <div class="event-note">沖繩在地人氣燒肉！建議提前訂位，附近停車方便。沖繩和牛搭配辣白菜超搭 🔥</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- DAY 5 -->
+
+  <div class="day-card day5">
+    <div class="day-header">
+      <div class="day-num">
+        <div class="day-label">DAY</div>
+        <div class="day-number">5</div>
+        <div class="day-date">5月13日 二</div>
+      </div>
+      <div class="day-title-area">
+        <div class="day-emoji">🐙✈️</div>
+        <div class="day-title">DMM水族館 × 購物 × 回家囉</div>
+      </div>
+    </div>
+    <div class="timeline">
+
+```
+  <div class="event">
+    <div class="event-dot" style="background:#ede9fe;">🐙</div>
+    <div class="event-content">
+      <div class="event-time">09:00–12:30</div>
+      <div class="event-name">DMM Kariyushi 水族館 <span class="tag tag-fun">必去</span></div>
+      <div class="event-duration">建議停留 1.5–2 小時</div>
+      <div class="event-note">沖繩最新沉浸式水族館！可近距離接觸水獺、餵食樹懶🦥企鵝🐧，夢幻水母展區超好拍！位於 iias 沖繩豐崎購物中心內 📍那霸機場車程約20分鐘</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#fef9c3;">🛍️</div>
+    <div class="event-content">
+      <div class="event-time">12:30–13:00</div>
+      <div class="event-name">iias 沖繩豐崎 最後購物 <span class="tag tag-fun">購物</span></div>
+      <div class="event-duration">最後掃貨約 30 分鐘，輕鬆逛！</div>
+      <div class="event-note">日本連鎖店、藥妝、沖繩限定品！距那霸機場約 20 分鐘，水族館逛完直接出發機場剛剛好 🛒</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#ede9fe;">🚗</div>
+    <div class="event-content">
+      <div class="event-time">約 13:30</div>
+      <div class="event-name">前往那霸機場 & 還車</div>
+      <div class="event-duration">車程約 20 分鐘 ＋ 還車手續 30 分鐘</div>
+      <div class="event-note">JX871 起飛 15:35，提前2小時（13:30）抵達機場 ✅ 記得提前加油再還車！辦完登機後可在免稅店最後採買</div>
+    </div>
+  </div>
+
+  <div class="arrow-div">↓</div>
+
+  <div class="event">
+    <div class="event-dot" style="background:#ede9fe;">✈️</div>
+    <div class="event-content">
+      <div class="event-time">回程班機</div>
+      <div class="event-name">星宇航空 JX871 <span class="tag tag-fly">回程</span></div>
+      <div class="flight-card" style="margin-top:8px;">
+        <div class="flight-num">JX871 | 星宇航空 STARLUX</div>
+        <div class="flight-route">
+          <span class="flight-city">🇯🇵 那霸 OKA</span>
+          <span class="flight-arrow">━━✈━━▶</span>
+          <span class="flight-city">🇹🇼 桃園 TPE</span>
+        </div>
+        <div class="flight-details">表定起飛 15:35（那霸機場 OKA） ✦ 表定抵達桃園 16:05 ✦ 飛行約 1小時30分</div>
+      </div>
+      <div class="event-note">🎉 滿載美好回憶，平安抵家！記得申報免稅額度（日本可免稅購買上限）</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    <div class="footer-icons">🌺 🐬 🌊 🦀 🌸 🐠 ✈️</div>
+    <p><strong>沖繩五天四夜 ｜ 2025年5月9日–13日</strong></p>
+    <p style="margin-top:6px;font-size:0.78rem;color:#888;">✦ 航班時間以星宇航空官網最新時刻表為準 ✦ 美麗海水族館表演時間可能因動物狀況調整，請當天確認 ✦</p>
+    <p style="margin-top:4px;font-size:1.2rem;">旅途愉快！いってらっしゃい 🤙</p>
+  </div>
+
+</div>
+</body>
+</html>
